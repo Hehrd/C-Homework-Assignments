@@ -1,0 +1,19 @@
+
+# Задача 1
+gcc -E program.c -o program_preprocessed.c
+
+# Задача 3
+
+gcc -E transformation.c -o transformation_preprocessed.c
+gcc -S transformation.c -o transformation.s
+gcc -c transformation.c -o transformation.o
+gcc main.c transformation.o -o transformation_program
+
+# Задача 4
+
+gcc -o array_pow array_pow.c -lm
+
+# Задача 5
+gcc -c maths.c -o maths.o
+ar rcs libmaths.a maths.o
+gcc main.c -L. -lmaths -o factorial_program

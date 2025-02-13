@@ -1,0 +1,22 @@
+all: safeadd safesubtract safemultiply safedivide
+
+safeint.o: safeint.c safeint.h
+	gcc -c safeint.c
+
+util.o: util.c util.h
+	gcc -c util.c
+
+safeadd: safeadd.c safeint.o util.o
+	gcc -o safeadd safeadd.c safeint.o util.o
+
+safesubtract: safesubtract.c safeint.o util.o
+	gcc -o safesubtract safesubtract.c safeint.o util.o
+
+safemultiply: safemultiply.c safeint.o util.o
+	gcc -o safemultiply safemultiply.c safeint.o util.o
+
+safedivide: safedivide.c safeint.o util.o
+	gcc -o safedivide safedivide.c safeint.o util.o
+
+clean:
+	del /f /q *.exe *.o
